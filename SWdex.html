@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>SWdex</title>
+	<style>
+		.starship0,.starship1,.starship2,.starship3{
+			width: 500px;
+			height: 500px; 
+			text-align: center;
+		}
+
+
+
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			function swSubmit(){
+	    		var swURL = "https://swapi.co/api/starships/";
+	    		$.getJSON(swURL, function(data){ //making get request
+	        		console.log(JSON.stringify(data, null, "  "));
+	        		$(".starship0").click(function(){
+	        			$(".box0").html("<p> Name: " + JSON.stringify(
+	        				data.results[0].name) + "<br>Model: " + JSON.stringify(
+	        				data.results[0].model) + "<br>Manufacturer: " + JSON.stringify(data.results[0].manufacturer) + "</p>");
+	        		})
+	        		$(".starship1").click(function(){
+	        			$(".box1").html("<p> Name: " + JSON.stringify(
+	        				data.results[1].name) + "<br>Model: " + JSON.stringify(
+	        				data.results[1].model) + "<br>Manufacturer: " + JSON.stringify(data.results[1].manufacturer) + "</p>");
+	        		})
+	        		$(".starship2").click(function(){
+	        			$(".box2").html("<p> Name: " + JSON.stringify(
+	        				data.results[2].name) + "<br>Model: " + JSON.stringify(
+	        				data.results[2].model) + "<br>Manufacturer: " + JSON.stringify(data.results[2].manufacturer) + "</p>");
+	        		})
+	        		$(".starship3").click(function(){
+	        			$(".box3").html("<p> Name: " + JSON.stringify(
+	        				data.results[3].name) + "<br>Model: " + JSON.stringify(
+	        				data.results[3].model) + "<br>Manufacturer: " + JSON.stringify(data.results[3].manufacturer) + "</p>");
+	        		})
+
+
+	        		/**for(var i = 0; i <= 3; i++){
+	        			console.log(data.results[i]);
+				
+						$('.ships').children().click(function(){
+						$(this).append("<p class='starship" + i + "'>" + JSON.stringify(data.results[$(this).val()].name) + "</p>");
+						})
+					}**/
+				});
+		}
+		swSubmit();
+
+	});
+	</script>
+</head>
+<body>
+
+	<div class="ships">
+		<div value="0" class="starship0">
+		<img src="http://gameranx.com/img/14-Jul/superstardestroyer.jpg">
+		<p class="box0"></p>
+		</div>
+		<div class="starship1">
+		<img src="https://vignette.wikia.nocookie.net/starwars-exodus/images/1/10/Sentinel-class_Landing_Craft.jpg/revision/latest?cb=20061026160527">
+		<p class="box1"></p>
+		</div>
+		<div class="starship2">
+		<img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Death_star1.png">
+		<p class="box2"></p>
+		</div>
+		<div class="starship3">
+		<img src="https://cdn.shopify.com/s/files/1/0727/8355/products/millenniumfalcon_72_1_04_2048x2048.jpg?v=1500389717">
+		<p class="box3"></p>
+		</div>
+	</div>
+	
+</body>
+</html>
